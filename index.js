@@ -13,7 +13,7 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/public/assets/images`));
 app.use(cors());
-app.use("/", commonRouter);
+app.use("/api", commonRouter);
 
 //for handling undefined routes
 app.all("*", (req, res, next) => {
