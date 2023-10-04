@@ -8,11 +8,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const globalErrorHandler = require("./utils/errorHandler");
 const AppError = require("./utils/appError");
-
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/public/assets/images`));
 app.use(cors());
-app.use("/api", commonRouter);
+app.use("/", commonRouter);
 
 //for handling undefined routes
 app.all("*", (req, res, next) => {
